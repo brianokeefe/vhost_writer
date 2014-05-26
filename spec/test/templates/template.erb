@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+  ServerAdmin admin@<%= site %>
+  ServerName <%= site %>
+  ServerAlias www.<%= site %>
+  DocumentRoot /srv/www/<%= site %>/public_html/
+  ErrorLog /srv/www/<%= site %>/logs/error.log
+  CustomLog /srv/www/<%= site %>/logs/access.log combined
+</VirtualHost>

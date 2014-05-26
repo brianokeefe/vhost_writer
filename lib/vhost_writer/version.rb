@@ -1,0 +1,3 @@
+module VhostWriter
+  VERSION = '0.1.0'
+end

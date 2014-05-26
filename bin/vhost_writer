@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'vhost_writer/cli'
+VhostWriter::CLI.start

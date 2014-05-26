@@ -18,7 +18,7 @@ Automatically generate virtual host config files based on a directory of sites a
 
 ### Example
 
-    vhost_writer /srv/www/ /etc/apache2/sites-available/ /home/bok/template.erb
+    vhost_writer write /srv/www/ /etc/apache2/sites-available/ /home/bok/template.erb
 
 ### Template Example
 

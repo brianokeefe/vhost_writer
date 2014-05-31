@@ -8,7 +8,9 @@ Automatically generate virtual host config files based on a directory of sites a
 
 ## Usage
 
-`vhost_writer` takes the following:
+### Writing configs
+
+`vhost_writer write` takes the following:
 
 * A directory of directories that contain sites
   * Each site's directory should share the name of its domain (like `example.com`)
@@ -16,11 +18,21 @@ Automatically generate virtual host config files based on a directory of sites a
 * The path to a template file written in ERB
   * Within the template, the `site` variable contains the name of the site.
 
-### Example
+#### Example
 
     $ vhost_writer write /srv/www/ /etc/apache2/sites-available/ /home/bok/template.erb
 
-### Template Example
+### Scaffolding
+
+vhost_writer has the ability to generate sane default ERB templates for you to modify and use with `vhost_writer write`. Access this functionality with `vhost_writer scaffold`.
+
+    # Get a list of included scaffolds
+    $ vhost_writer scaffold
+
+    # Generate an Apache ERB template
+    $ vhost_writer scaffold apache
+
+## Template Example
 
     <VirtualHost *:80>
       ServerAdmin admin@<%= site %>

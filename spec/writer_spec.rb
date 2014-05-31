@@ -59,8 +59,8 @@ describe VhostWriter::Writer do
     end
   end
 
-  describe '#write_configs_using' do
-    before { writer.write_configs_using template }
+  describe '#write_configs!' do
+    before { writer.write_configs! template }
     let(:results_dir_contents) { Dir.glob('spec/test/sites-available/*').map { |f| File.basename f } }
 
     it 'should write config files' do

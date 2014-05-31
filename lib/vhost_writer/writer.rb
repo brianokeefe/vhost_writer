@@ -27,7 +27,7 @@ module VhostWriter
       Writer.new :conf_dir => @conf_dir, :sites => site_whitelist - (@sites - site_whitelist)
     end
 
-    def write_configs_using(template)
+    def write_configs!(template)
       @sites.each do |site|
         File.open("#{@conf_dir}#{site}", 'w') do |f|
           f.write ERB.new(template).result(binding)

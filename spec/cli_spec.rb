@@ -21,4 +21,39 @@ describe VhostWriter::CLI do
       pending 'not yet implemented'
     end
   end
+
+  describe '#scaffold' do
+    context 'when a valid scaffold is specified' do
+      let(:scaffold_contents) { File.read 'lib/vhost_writer/scaffolds/apache.erb' }
+      before do
+        Dir.chdir('spec/test') { subject.scaffold 'apache' }
+      end
+
+      it 'should generate a file' do
+        expect(Dir.glob('spec/test/*').map { |f| File.basename f }).to include 'apache.erb'
+      end
+
+      it 'the file should be copied from the scaffold' do
+        expect(File.read 'spec/test/apache.erb').to eql scaffold_contents
+      end
+
+      after { File.delete 'spec/test/apache.erb' }
+    end
+
+    context 'when an invalid scaffold is specified' do
+      let(:output) { capture(:stdout) { subject.scaffold 'not-real' } }
+
+      it 'should return an error message' do
+        expect(output).to include 'Specified scaffold does not exist'
+      end
+    end
+
+    context 'when no scaffold is specified' do
+      let(:output) { capture(:stdout) { subject.scaffold } }
+
+      it 'should list the available scaffolds' do
+        expect(output).to include 'apache'
+      end
+    end
+  end
 end

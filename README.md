@@ -26,7 +26,7 @@ Automatically generate virtual host config files based on a directory of sites a
 
 vhost_writer has the ability to generate sane default ERB templates for you to modify and use with `vhost_writer write`. Access this functionality with `vhost_writer scaffold`.
 
-    # Get a list of included scaffolds
+    # Display a list of included scaffolds
     $ vhost_writer scaffold
 
     # Generate an Apache ERB template

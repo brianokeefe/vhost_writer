@@ -17,23 +17,23 @@ CONFIG_DIRECTORY using TEMPLATE'
 
     desc 'scaffold [WEB_SERVER]',
     'Generate a default template for WEB_SERVER. Run without arguments for a
-list of supported web servers.'
+list of available scaffolds.'
     def scaffold(scaffold='')
       if scaffold.empty?
-        say "Supported scaffolds:\n  ", :yellow
-        say "#{supported_scaffolds.join("\n  ")}"
+        say "Available scaffolds:\n  ", :yellow
+        say "#{available_scaffolds.join("\n  ")}"
       else
         write_scaffold scaffold
       end
     end
 
     private
-    def supported_scaffolds
+    def available_scaffolds
       Dir.glob("#{source_paths.first}*").map { |f| File.basename f, '.erb' }
     end
 
     def write_scaffold(scaffold)
-      if supported_scaffolds.include? scaffold
+      if available_scaffolds.include? scaffold
         copy_file "#{scaffold}.erb"
       else
         say "Specified scaffold does not exist", :red

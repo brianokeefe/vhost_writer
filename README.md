@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/vhost_writer.svg)](http://badge.fury.io/rb/vhost_writer)
+[![Code Climate](https://codeclimate.com/github/brianokeefe/vhost_writer.png)](https://codeclimate.com/github/brianokeefe/vhost_writer)
 # VhostWriter
 
 Automatically generate virtual host config files based on a directory of sites and a given ERB template.

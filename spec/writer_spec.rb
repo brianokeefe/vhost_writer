@@ -21,12 +21,6 @@ describe VhostWriter::Writer do
     it 'should not accept both :sites_dir and :sites' do
       expect { VhostWriter::Writer.new :conf_dir => 'foo/bar', :sites_dir => 'bar/baz', :sites => ['example.com', 'example.org']}.to raise_error 'Only one of :sites_dir and :sites is allowed'
     end
-
-    context 'when conf_dir does not have a trailing slash' do
-      it 'should automatically add a trailing slash' do
-        expect(writer.conf_dir).to eql 'spec/test/sites-available/'
-      end
-    end
   end
 
   describe '#sites' do

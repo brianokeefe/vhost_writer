@@ -9,7 +9,6 @@ module VhostWriter
       raise ArgumentError, 'Either :sites_dir or :sites is required' unless options.key? :sites_dir or options.key? :sites
       raise ArgumentError, 'Only one of :sites_dir and :sites is allowed' if options.key? :sites_dir and options.key? :sites
 
-      options[:conf_dir] << '/' unless options[:conf_dir] =~ /\/\z/
       @conf_dir = options[:conf_dir]
 
       if options.key? :sites_dir
@@ -29,7 +28,7 @@ module VhostWriter
 
     def write_configs!(template)
       @sites.each do |site|
-        File.open("#{@conf_dir}#{site}", 'w') do |f|
+        File.open(File.join(@conf_dir, site), 'w') do |f|
           f.write ERB.new(template).result(binding)
         end
       end

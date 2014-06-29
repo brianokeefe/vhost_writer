@@ -7,7 +7,7 @@ describe VhostWriter::CLI do
       before { subject.write 'spec/test/www/', 'spec/test/sites-available/', 'spec/test/templates/template.erb' }
 
       it 'should write config files' do
-        expect(Dir.glob('spec/test/sites-available/*').map { |f| File.basename f }).to eql ['example.com', 'example.org', 'foo.example.com']
+        expect(Dir.glob('spec/test/sites-available/*').map { |f| File.basename f }.sort).to eql ['example.com', 'example.org', 'foo.example.com']
       end
 
       it 'should utilize the specified template' do

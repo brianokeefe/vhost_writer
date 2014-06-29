@@ -25,7 +25,7 @@ describe VhostWriter::Writer do
 
   describe '#sites' do
     it 'should reflect the sites in the sites directory' do
-      expect(writer.sites).to eql all_sites
+      expect(writer.sites.sort).to eql all_sites
     end
   end
 
@@ -55,7 +55,7 @@ describe VhostWriter::Writer do
 
   describe '#write_configs!' do
     before { writer.write_configs! template }
-    let(:results_dir_contents) { Dir.glob('spec/test/sites-available/*').map { |f| File.basename f } }
+    let(:results_dir_contents) { Dir.glob('spec/test/sites-available/*').map { |f| File.basename f }.sort }
 
     it 'should write config files' do
       expect(results_dir_contents).to eql all_sites

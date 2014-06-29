@@ -37,7 +37,7 @@ describe VhostWriter::Writer do
     end
 
     it 'should ignore blacklisted sites' do
-      expect(blacklisted_writer.sites).to eql ['example.org', 'foo.example.com']
+      expect(blacklisted_writer.sites.sort).to eql ['example.org', 'foo.example.com']
     end
   end
 

@@ -20,4 +20,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'thor'
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rake'
 end

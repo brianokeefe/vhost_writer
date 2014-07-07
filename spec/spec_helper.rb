@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'vhost_writer'
 
 # from thor spec helper

@@ -2,7 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/vhost_writer.svg)](http://badge.fury.io/rb/vhost_writer)
 [![Code Climate](https://codeclimate.com/github/brianokeefe/vhost_writer.png)](https://codeclimate.com/github/brianokeefe/vhost_writer)
 [![Build Status](https://travis-ci.org/brianokeefe/vhost_writer.svg?branch=master)](https://travis-ci.org/brianokeefe/vhost_writer)
-
+[![Coverage Status](https://img.shields.io/coveralls/brianokeefe/vhost_writer.svg)](https://coveralls.io/r/brianokeefe/vhost_writer?branch=master)
 
 Automatically generate virtual host config files based on a directory of sites and a given ERB template.
 
